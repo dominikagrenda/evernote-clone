@@ -1,0 +1,14 @@
+<%= @notepad.title %>
+
+<div>
+
+  <%= link_to "Edit", edit_notepad_path(@notepad), :class => 'btb btn-default' %>
+
+  <%= link_to "Delete", notepad_path(@notepad),
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'},
+                        :class => 'btb btn-danger' %>
+
+  <%= link_to "Return", notepads_path(@notepad), :class => 'btb btn-default' %>
+
+</div>
