@@ -1,0 +1,15 @@
+<%= @note.title %>
+<%= @note.text %>
+
+<div>
+
+  <%= link_to "Edit", edit_note_path(@note), :class => 'btb btn-default' %>
+
+  <%= link_to "Delete", note_path(@note),
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'},
+                        :class => 'btb btn-danger' %>
+
+  <%= link_to "Return", notes_path(@note), :class => 'btb btn-default' %>
+
+</div>
