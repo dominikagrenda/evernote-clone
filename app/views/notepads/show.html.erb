@@ -1,6 +1,13 @@
 <%= @notepad.title %>
 
 <div>
+  <% @notes.each do |note| %>
+    <h2><%= link_to note.title, note_path(note) %></h2>
+    <p><%= note.text %></p>
+  <% end %>
+</div>
+
+<div>
 
   <%= link_to "Edit", edit_notepad_path(@notepad), :class => 'btb btn-default' %>
 

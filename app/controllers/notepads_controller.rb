@@ -19,6 +19,7 @@ class NotepadsController < ApplicationController
 
     def show
       @notepad = Notepad.find(params[:id])
+      @notes = @notepad.notes.all
     end
 
     def notepad_params

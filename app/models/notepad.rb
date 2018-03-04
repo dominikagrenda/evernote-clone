@@ -1,5 +1,5 @@
 class Notepad < ApplicationRecord
-  has_many :notes dependent: :destroy
+  has_many :notes 
 
   validates :title, presence: true,
               length: { maximum: 50}

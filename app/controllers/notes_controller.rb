@@ -10,8 +10,9 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
+    @notepad = params[:note][:notepad_id]
     if @note.save
-      redirect_to @note
+      redirect_to notepad_path(@notepad)
     else
       render :new
     end
@@ -22,7 +23,7 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:title, :text)
+    params.require(:note).permit(:title, :text, :notepad_id)
   end
 
   def edit
