@@ -3,7 +3,17 @@
 <h2><%= link_to "Create new note", new_note_path, :class => 'btb btn-default' %></h2>
 
 <div>
-  <% @note.each do |note| %>
+  <%= search_form_for @q do |f| %>
+    <%= f.label :title_or_text_cont %>
+    <%= f.search_field :title_or_text_cont %>
+    <%= f.submit %>
+  <% end %>
+
+  <%= sort_link(@q, :title) %>
+</div>
+
+<div>
+  <% @notes.each do |note| %>
     <h2><%= link_to note.title, note_path(note) %></h2>
     <p><%= note.text %></p>
   <% end %>
