@@ -13,7 +13,8 @@ class NotepadsController < ApplicationController
       if @notepad.save
         redirect_to @notepad
       else
-        render :new
+        redirect_to new_notepad_path
+        flash[:error] = "The Notepad name must be unique"
       end
     end
 
