@@ -10,3 +10,7 @@
 </div>
 
 <%= link_to "Return", notes_path(@note), :class => 'btb btn-default' %>
+
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: key %>
+<% end %>

@@ -3,6 +3,7 @@ class Note < ApplicationRecord
 
   validates :notepad, presence: true
   validates :title, presence: true,
-              length: { maximum: 50}
+            length: { maximum: 50},
+            uniqueness: true
   validates :text, presence: true
 end

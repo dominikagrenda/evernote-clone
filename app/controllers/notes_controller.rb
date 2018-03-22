@@ -15,7 +15,8 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to notepad_path(@notepad)
     else
-      render :new
+      redirect_to new_note_path
+      flash[:error] = @note.errors.full_messages
     end
   end
 
