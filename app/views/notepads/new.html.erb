@@ -8,3 +8,8 @@
 </div>
 
 <%= link_to "Return", notepads_path(@notepad), :class => 'btb btn-default' %>
+
+
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: key %>
+<% end %>
