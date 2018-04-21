@@ -24,10 +24,6 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
   end
 
-  def note_params
-    params.require(:note).permit(:title, :text, :notepad_id)
-  end
-
   def edit
     @note = Note.find(params[:id])
   end
@@ -46,6 +42,12 @@ class NotesController < ApplicationController
     @note.destroy
 
     redirect_to notes_path
+  end
+
+  private
+
+  def note_params
+    params.require(:note).permit(:title, :text, :notepad_id, {pictures: []})
   end
 
 end

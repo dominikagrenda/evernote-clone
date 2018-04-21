@@ -6,4 +6,6 @@ class Note < ApplicationRecord
             length: { maximum: 50},
             uniqueness: true
   validates :text, presence: true
+
+  mount_uploaders :pictures, PictureUploader
 end

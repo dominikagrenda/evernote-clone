@@ -14,4 +14,10 @@
 
   <%= link_to "All notes in this Notepad", @note.notepad, :class => 'btb btn-default'%>
 
+  <% @note.pictures.each do |p| %>
+    <ul>
+      <li><%= image_tag p.url %> </li>
+    </ul>
+  <% end %>
+
 </div>
