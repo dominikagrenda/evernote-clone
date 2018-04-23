@@ -1,15 +1,24 @@
-<h1>Create Notepad</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <hr>
+      <h1 class="page-header">Create Notepad
+      </h1>
+    </div>
+  </div>
 
-<div>
-  <%= form_for @notepad do |f| %>
+  <div>
+    <%= form_for @notepad do |f| %>
+    <label for="exampleInputTitle">Title</label>
     <%= f.text_field :title %>
-    <%= f.submit "Create" %>
+    <%= f.submit "Create", :class => "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <%= link_to "Return", notepads_path(@notepad), :class => 'btn btn-primary' %>
+
+
+  <% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: key %>
   <% end %>
 </div>
-
-<%= link_to "Return", notepads_path(@notepad), :class => 'btb btn-default' %>
-
-
-<% flash.each do |key, value| %>
-  <%= content_tag :div, value, class: key %>
-<% end %>

@@ -1,20 +1,69 @@
-<h1>My Notes</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <hr>
+      <h1 class="page-header">My Notes
+      </h1>
+    </div>
+  </div>
 
-<h2><%= link_to "Create new note", new_note_path, :class => 'btb btn-default' %></h2>
+  <h2><%= link_to "Create new note", new_note_path, :class => 'btb btn-default' %></h2>
 
-<div>
-  <%= search_form_for @q do |f| %>
-    <%= f.label :title_or_text_cont %>
-    <%= f.search_field :title_or_text_cont %>
-    <%= f.submit %>
-  <% end %>
+  <div class="well">
+    <h4>Blog Search</h4>
+    <%= search_form_for @q do |f| %>
+    <div class="input-group">
+      <%= f.search_field :title_or_text_cont, :placeholder => "Text or Title consist", :class => "form-control"%>
+      <span class="input-group-btn">
+        <%= f.submit :class => 'btn btn-primary' %>
+      </div>
+    </span>
+    <% end %>
+    <h4>Blog Sort</h4>
+    <div class="btn btn-default">
+      <%= sort_link(@q, :title)%>
+    </div>
+  </div>
+  
+  <hr>
 
-  <%= sort_link(@q, :title) %>
-</div>
+  <div class="row">
+    <% @notes.each do |note| %>
+    <div class="col-md-4 portfolio-item">
+      <h2><%= link_to note.title, note_path(note) %></h2>
+      <%= raw(note.text) %>
+    </div>
+    <% end %>
+  </div>
 
-<div>
-  <% @notes.each do |note| %>
-    <h2><%= link_to note.title, note_path(note) %></h2>
-    <p><%= note.text %></p>
-  <% end %>
+  <hr>
+
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <ul class="pagination">
+        <li>
+          <a href="#">&laquo;</a>
+        </li>
+        <li class="active">
+          <a href="#">1</a>
+        </li>
+        <li>
+          <a href="#">2</a>
+        </li>
+        <li>
+          <a href="#">3</a>
+        </li>
+        <li>
+          <a href="#">4</a>
+        </li>
+        <li>
+          <a href="#">5</a>
+        </li>
+        <li>
+          <a href="#">&raquo;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr>
 </div>
