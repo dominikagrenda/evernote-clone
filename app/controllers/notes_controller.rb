@@ -2,7 +2,7 @@ class NotesController < ApplicationController
 
   def index
     @q = Note.ransack(params[:q])
-    @notes = @q.result(distinct: true)
+    @notes = @q.result(distinct: true).page(params[:page]).per(9)
   end
 
   def new
