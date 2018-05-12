@@ -10,7 +10,7 @@
   <div>
     <%= form_for :note, url: note_path(@note), method: :patch do |f| %>
     <h4>Title</h4>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => "form-control" %>
     <hr>
     <div class="dropdown">
       <h4>Please choose Notepad</h4>
@@ -19,10 +19,13 @@
     <hr>
     <%= f.text_area :text, :class => 'ckeditor', as: :ckeditor, id: "ckeditor_text_area"%>
     <hr>
-    <div>
-      <%= f.file_field :pictures, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+    <label class="btn btn-primary btn-block">
+      Add files!
+      <span style="display:none;">
+        <%= f.file_field :pictures, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+      </span>
+    </label>
     <hr>
-    </div>
     <%= f.submit "Create", :class => 'btn btn-primary btn-block' %>
     <% end %>
     <%= link_to "Close", notes_path(@note), :class => 'btn btn-warning btn-block' %>

@@ -10,12 +10,13 @@
   <div>
     <%= link_to "Edit", edit_notepad_path(@notepad), :class => 'btn btn-primary' %>
 
+    <%= link_to "Back", notepads_path(@notepad), :class => 'btn btn-primary' %>
+
     <%= link_to "Delete", notepad_path(@notepad),
     method: :delete,
     data: {confirm: 'Are you sure?'},
     :class => 'btn btn-danger' %>
 
-    <%= link_to "Return", notepads_path(@notepad), :class => 'btn btn-primary' %>
   </div>
 
   <div class="row">
