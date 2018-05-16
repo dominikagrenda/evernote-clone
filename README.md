@@ -6,7 +6,7 @@
 - Rails 5.1.6
 - Development and production db: PostgreSQL
 ***
-### Implemented things:
+### Implemented features:
 
 - Creating account with avatar
 - Creating Notes and Notepads
